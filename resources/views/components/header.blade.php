@@ -25,15 +25,39 @@
 
                 </ul>
                 <form class="d-flex" role="search">
+
+                @auth()
+                        <div class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Username
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="">Личный кабинет</a></li>
+                                <li><a class="dropdown-item" href="">Выход</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="#"><u>Ты админ?</u></a></li>
+                            </ul>
+
+                        </div>
+                @endauth
+
+                @guest()
                     <div class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Пользователь
                         </a>
+
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{route('registration')}}">Регистрация</a></li>
                             <li><a class="dropdown-item" href="{{route('login')}}">Вход</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" href="#"><u>Ты админ?</u></a></li>
                         </ul>
+
                     </div>
+                @endguest
+
                 </form>
             </div>
         </div>
